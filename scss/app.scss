@@ -1,0 +1,73 @@
+$font-size: 24px;
+$font-weight: 300;
+$max-width: 420px;
+$result-font-size: 60px;
+$number-font-size: 28px;
+$body-background: #cdf5dc;
+$result-color: #fff;
+$result-background: #199c64;
+$resutl-font-weight: 100;
+$number-color: #199c64;
+$number-background: #fbfffd;
+$operator-color: #fff;
+$operator-background: #2bc26b;
+$equal-button-background:#7dde2f;
+
+body {
+  margin: 0;
+  background: $body-background;
+  font-family: Helvetica, sans-serif;
+}
+
+#calculator {
+  display: flex;
+  margin: auto;
+  height: 100vh;
+  max-width: $max-width;
+  flex-direction: column;
+}
+
+#result {
+  flex: 1;
+  display: flex;
+  color: $result-color;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-weight: $resutl-font-weight;
+  font-size: $result-font-size;
+  background: $result-background;
+  padding: 2% 7%;
+}
+
+#keypad {
+  display: flex;
+  flex-wrap: wrap;
+  .keybtn {
+    flex: 1;
+    cursor: pointer;
+    font-size: $font-size;
+    font-weight: 300;
+    height: calc(100vw / 4);
+    max-height: 100px; 
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.number {
+      color: $number-color;
+      font-size: $font-size;
+      background: $number-background;
+    }
+    &.operator {
+      color: $operator-color;
+      background: $operator-background;
+    }
+    &.operator.equal {
+      background: $equal-button-background;
+    }
+    &.negative, &.dot {
+      color: $number-color;
+      background: $number-background;
+    }
+  }
+}

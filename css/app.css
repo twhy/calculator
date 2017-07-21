@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  background: #cdf5dc;
+  font-family: Helvetica, sans-serif; }
+
+#calculator {
+  display: flex;
+  margin: auto;
+  height: 100vh;
+  max-width: 420px;
+  flex-direction: column; }
+
+#result {
+  flex: 1;
+  display: flex;
+  color: #fff;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-weight: 100;
+  font-size: 60px;
+  background: #199c64;
+  padding: 2% 7%; }
+
+#keypad {
+  display: flex;
+  flex-wrap: wrap; }
+  #keypad .keybtn {
+    flex: 1;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 300;
+    height: calc(100vw / 4);
+    max-height: 100px;
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #keypad .keybtn.number {
+      color: #199c64;
+      font-size: 24px;
+      background: #fbfffd; }
+    #keypad .keybtn.operator {
+      color: #fff;
+      background: #2bc26b; }
+    #keypad .keybtn.operator.equal {
+      background: #7dde2f; }
+    #keypad .keybtn.negative, #keypad .keybtn.dot {
+      color: #199c64;
+      background: #fbfffd; }
