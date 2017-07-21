@@ -16,7 +16,7 @@
     $result.innerText = expr;   // 给 #result 元素设置新的文本 expr
   }
 
-  set(expr);  // 初始化计算器显示结果为 0
+  set(expr);                    // 初始化计算器显示结果为 0
   
   // 遍历数字键 DOM 元素，给每个数字键添加 click 事件监听器
   for (let i = 0; i < $numbers.length; i++) {
@@ -74,8 +74,8 @@
       // 通过 set() 把 eval() 求值的结果显示出来
       set(eval(expr.slice(0, -1)));
     } else {
-      set(eval(expr));    // 否者直接把表达式给 eval() 进行求值并显示
-      
+      // 否者直接把表达式给 eval() 进行求值并显示
+      set(eval(expr));
     }
   });
 
