@@ -4,7 +4,7 @@
   let $plus = document.querySelector('.keybtn.operator.plus');      // 获取 ‘加’ 号元素
   let $equal = document.querySelector('.keybtn.operator.equal');    // 获取 ‘等’ 号元素
   let $clear = document.querySelector('.keybtn.operator.clear');    // 获取 ‘清’ 键元素
-  let $delete = document.querySelector('.keybtn.operator.delete')   // 获取 ‘删’ 键元素
+  let $delete = document.querySelector('.keybtn.operator.delete');  // 获取 ‘删’ 键元素
   let $numbers = document.querySelectorAll('.keybtn.number');       // 获取所有数字键元素
 
   let expr = '0';                         // 记录当前的计算表达式

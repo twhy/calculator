@@ -37,6 +37,7 @@ body {
   font-size: $result-font-size;
   background: $result-background;
   padding: 2% 7%;
+  overflow: auto;
 }
 
 #keypad {
@@ -53,9 +54,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    &.number {
+    &.number, &.negative, &.dot {
       color: $number-color;
-      font-size: $font-size;
       background: $number-background;
     }
     &.operator {
@@ -64,10 +64,6 @@ body {
     }
     &.operator.equal {
       background: $equal-button-background;
-    }
-    &.negative, &.dot {
-      color: $number-color;
-      background: $number-background;
     }
   }
 }
