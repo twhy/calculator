@@ -1,6 +1,9 @@
 (function() {
 
+  const RESULT_CONTENT_MAX_WIDTH_PERCENTAGE = 1 - 0.07 * 2;
+
   let $result = document.querySelector('#result');                  // 获取 #result 元素
+  let $expr = document.querySelector('#expr');                      // 获取 #expr 元素
   let $plus = document.querySelector('.keybtn.operator.plus');      // 获取 ‘加’ 号元素
   let $equal = document.querySelector('.keybtn.operator.equal');    // 获取 ‘等’ 号元素
   let $clear = document.querySelector('.keybtn.operator.clear');    // 获取 ‘清’ 键元素
@@ -13,7 +16,19 @@
   // 通过函数 set 完成两个操作
   function set(value) {
     expr = String(value);       // 给 expr 赋新的值，通过 String() 保证 expr 是字符串
-    $result.innerText = expr;   // 给 #result 元素设置新的文本 expr
+    $expr.innerText = expr;     // 给 #expr 元素设置新的文本 expr
+    resize();
+  }
+  
+  // 检查表达式或结果是否过长，是则缩小
+  function resize() {
+    let maxWidth = $result.clientWidth * RESULT_CONTENT_MAX_WIDTH_PERCENTAGE;
+    if ($expr.scrollWidth > maxWidth) {
+      $expr.style.transform = `scale(${1  / ($expr.scrollWidth / maxWidth)})`;
+      $expr.style.transformOrigin = 'right center';
+    } else {
+      $expr.style.transform = `scale(1)`;
+    }
   }
 
   set(expr);                    // 初始化计算器显示结果为 0
