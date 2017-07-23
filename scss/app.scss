@@ -60,6 +60,7 @@ html, body {
     font-size: $font-size;
     font-weight: 300;
     height: calc(100vw / 4);
+    max-height: 100px;
     flex-basis: 25%;
     display: flex;
     align-items: center;
