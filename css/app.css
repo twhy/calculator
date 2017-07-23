@@ -1,14 +1,24 @@
 body {
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #cdf5dc;
   font-family: Helvetica, sans-serif; }
+
+html, body {
+  height: 100%; }
 
 #calculator {
   display: flex;
   margin: auto;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
   max-width: 420px;
   flex-direction: column; }
+  @media (min-width: 768px) {
+    #calculator {
+      max-height: 650px; } }
 
 #result {
   flex: 1;
@@ -17,7 +27,7 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   font-weight: 100;
-  font-size: 60px;
+  font-size: 56px;
   background: #199c64;
   padding: 2% 7%;
   overflow: auto; }
@@ -31,11 +41,13 @@ body {
     font-size: 24px;
     font-weight: 300;
     height: calc(100vw / 4);
-    max-height: 100px;
     flex-basis: 25%;
     display: flex;
     align-items: center;
     justify-content: center; }
+    @media (max-height: 568px) {
+      #keypad .keybtn {
+        max-height: 75px; } }
     #keypad .keybtn.number, #keypad .keybtn.negative, #keypad .keybtn.dot {
       color: #199c64;
       background: #fbfffd; }
