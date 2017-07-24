@@ -13,6 +13,10 @@ $operator-color: #fff;
 $operator-background: #2bc26b;
 $equal-button-background:#7dde2f;
 
+* {
+  touch-action: manipulation;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -33,6 +37,10 @@ html, body {
   overflow: hidden;
   max-width: $max-width;
   flex-direction: column;
+  .landscape & {
+    width: 100%;
+    max-width: 100%;
+  }
   @media (min-width: 768px) {
     max-height: 650px;
   }
@@ -54,9 +62,14 @@ html, body {
 #keypad {
   display: flex;
   flex-wrap: wrap;
+  .landscape & .keybtn {
+    font-size: 20px;
+    max-height: 40px;
+  }
   .keybtn {
     flex: 1;
     cursor: pointer;
+    user-select: none;
     font-size: $font-size;
     font-weight: 300;
     height: calc(100vw / 4);

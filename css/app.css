@@ -1,3 +1,6 @@
+* {
+  touch-action: manipulation; }
+
 body {
   margin: 0;
   display: flex;
@@ -16,6 +19,9 @@ html, body {
   overflow: hidden;
   max-width: 420px;
   flex-direction: column; }
+  .landscape #calculator {
+    width: 100%;
+    max-width: 100%; }
   @media (min-width: 768px) {
     #calculator {
       max-height: 650px; } }
@@ -35,9 +41,13 @@ html, body {
 #keypad {
   display: flex;
   flex-wrap: wrap; }
+  .landscape #keypad .keybtn {
+    font-size: 20px;
+    max-height: 40px; }
   #keypad .keybtn {
     flex: 1;
     cursor: pointer;
+    user-select: none;
     font-size: 24px;
     font-weight: 300;
     height: calc(100vw / 4);

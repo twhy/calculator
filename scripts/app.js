@@ -94,4 +94,28 @@
     }
   });
 
+  // 判断是否横屏
+  function isLandscape() {
+    // 横屏时 window.orientation 可能为 90 或 -90
+    if (Math.abs(window.orientation) === 90) return true;
+    // screen.orientation.angle 是标准的获取屏幕旋转角度的方法，目前仅 Chrome 支持较好
+    if (screen.orientation &&
+       (screen.orientation.angle === 90 || screen.orientation.angle === 270)) {
+         return true;
+       }
+    return false;
+  }
+  
+  function handleLandscape() {
+    isLandscape() ?
+      document.body.classList.add('landscape') :
+      document.body.classList.remove('landscape');
+  }
+
+  // 处理加载页面时已经是横屏的情况
+  handleLandscape();    
+
+  // 移动端监听屏幕旋转事件
+  window.addEventListener('orientationchange', handleLandscape);
+
 })();
