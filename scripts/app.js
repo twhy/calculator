@@ -1,9 +1,12 @@
+
+
 (function() {
 
   const RESULT_CONTENT_MAX_WIDTH_PERCENTAGE = 1 - 0.07 * 2;
 
   let $result = document.querySelector('#result');                  // 获取 #result 元素
   let $expr = document.querySelector('#expr');                      // 获取 #expr 元素
+  let $dot = document.querySelector('.keybtn.dot');                 // 获取 ‘点’ 键元素
   let $plus = document.querySelector('.keybtn.operator.plus');      // 获取 ‘加’ 号元素
   let $equal = document.querySelector('.keybtn.operator.equal');    // 获取 ‘等’ 号元素
   let $clear = document.querySelector('.keybtn.operator.clear');    // 获取 ‘清’ 键元素
@@ -12,6 +15,11 @@
 
   let expr = '0';                         // 记录当前的计算表达式
   let operators = ['+', '-', 'x', '/'];   // 运算符
+  
+  // 表达式最后一个字符是不是运算符
+  function isExprEndsWithOperator() {
+    return operators.indexOf(expr[expr.length - 1]) > -1;
+  }
   
   // 通过函数 set 完成两个操作
   function set(value) {
@@ -53,7 +61,7 @@
   $plus.addEventListener('click', function() {
     // 点击 ‘加’ 号时运行这个函数内的代码
     // 如果 expr 最后一个字符是运算符
-    if (operators.indexOf(expr[expr.length - 1]) > -1) {
+    if (isExprEndsWithOperator()) {
       // 那么把最后一个字符换成 '+'
       // expr.slice(0, expr.length - 1) 返回一个新字符串，包含原字符串的第一个到倒数第二个字符
       set(expr.slice(0, expr.length - 1) + '+');
@@ -82,7 +90,7 @@
   // 给 ‘等’ 键添加 click 事件监听器
   $equal.addEventListener('click', function() {
     // 如果当前计算表达式的最后一个字符是运算符
-    if (operators.indexOf(expr[expr.length - 1]) > -1) {
+    if (isExprEndsWithOperator()) {
       // expr.slice(0, -1) 返回一个新字符串，包含原字符串第一个字符到倒数第二个字符
       // 就是说不要最后那个运算符
       // eval() 可以用于求值，比如 eval('1 + 2') 返回 3
@@ -92,6 +100,39 @@
       // 否者直接把表达式给 eval() 进行求值并显示
       set(eval(expr));
     }
+  });
+
+  // 给 ‘点’ 键添加 click 事件监听器
+  $dot.addEventListener('click', function() {
+    // 要避免出现 12.34.56 无效这种输入
+
+    // 如果表达式最后一个字符是 '.' 则返回
+    if (expr.endsWith('.')) return;
+    // 如果表达式最后一个字符是运算符则返回
+    if (isExprEndsWithOperator()) return;
+
+    // 如果会用正则表达式
+    // let matches = expr.match(/\d+\.?\d*/g);
+    // 如果表达式最后一个数字已经包含小数点则返回
+    // if (matches && matches[matches.length - 1].indexOf('.') > -1) return;
+
+    // 如果不会使用正则表达式
+    // 如果表达式不包含小数点则在表达式后添加 '.' 并返回
+    if (expr.indexOf('.') === -1) return set(expr + '.');
+    
+    // 接着是表达式包含小数点的情况
+    // rest 是 expr 中最后一个小数点之后的子字符串
+    // 比如当 expr 是 '1.23+3.45' 时，rest 是 '45'
+    let rest = expr.slice(expr.lastIndexOf('.') + 1);
+    // 如果 rest 中的每个字符都不是运算符(表明最后一个数字已经包含小数点)则返回
+    if (
+      operators
+        .map(function(operator) { return rest.indexOf(operator) > -1; })
+        .every(function(result) { return result === false; })
+    ) return;
+
+    // 否则在表达式末尾添加 '.'
+    set(expr + '.');
   });
 
   // 判断是否横屏
