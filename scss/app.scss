@@ -37,8 +37,8 @@ html, body {
   overflow: hidden;
   max-width: $max-width;
   flex-direction: column;
-  -webkit-tap-highlight-color: rbga(0, 0, 0, 0);
-  .landscape & {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &.landscape  {
     width: 100%;
     max-width: 100%;
   }
@@ -85,13 +85,16 @@ html, body {
     &.number, &.negative, &.dot {
       color: $number-color;
       background: $number-background;
+      &:active { background: darken($number-background, 5%); }
     }
     &.operator {
       color: $operator-color;
       background: $operator-background;
+      &:active { background: darken($operator-background, 5%); }
     }
     &.operator.equal {
       background: $equal-button-background;
+      &:active { background: darken($equal-button-background, 5%); }
     }
   }
 }

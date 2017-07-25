@@ -19,8 +19,8 @@ html, body {
   overflow: hidden;
   max-width: 420px;
   flex-direction: column;
-  -webkit-tap-highlight-color: rbga(0, 0, 0, 0); }
-  .landscape #calculator {
+  -webkit-tap-highlight-color: transparent; }
+  #calculator.landscape {
     width: 100%;
     max-width: 100%; }
   @media (min-width: 768px) {
@@ -63,8 +63,14 @@ html, body {
     #keypad .keybtn.number, #keypad .keybtn.negative, #keypad .keybtn.dot {
       color: #199c64;
       background: #fbfffd; }
+      #keypad .keybtn.number:active, #keypad .keybtn.negative:active, #keypad .keybtn.dot:active {
+        background: #e2fff0; }
     #keypad .keybtn.operator {
       color: #fff;
       background: #2bc26b; }
+      #keypad .keybtn.operator:active {
+        background: #26ad5f; }
     #keypad .keybtn.operator.equal {
       background: #7dde2f; }
+      #keypad .keybtn.operator.equal:active {
+        background: #70d221; }
