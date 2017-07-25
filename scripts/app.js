@@ -4,9 +4,9 @@
 
     expr: '0',
 
-    operators: ['+', '-', '*', '/'],
-
     NEGATIVE:  ' -',
+
+    OPERATORS: ['+', '-', '*', '/'],
 
     RESULT_CONTENT_MAX_WIDTH_PERCENTAGE: 1 - 0.07 * 2,
 
@@ -63,7 +63,7 @@
     },
 
     _isExprEndsWithOperator() {
-      return !this._isExprEndsWithNegetive() && this.operators.indexOf(this.expr[this.expr.length - 1]) > -1;
+      return !this._isExprEndsWithNegetive() && this.OPERATORS.indexOf(this.expr[this.expr.length - 1]) > -1;
     },
 
     handleEvent(event) {
