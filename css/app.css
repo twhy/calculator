@@ -25,7 +25,9 @@ html, body {
     max-width: 100%; }
   @media (min-width: 768px) {
     #calculator {
-      max-height: 650px; } }
+      max-height: 660px; }
+      #calculator.landscape {
+        max-height: 100vh; } }
 
 #result {
   flex: 1;
@@ -42,9 +44,10 @@ html, body {
 #keypad {
   display: flex;
   flex-wrap: wrap; }
-  .landscape #keypad .keybtn {
-    font-size: 20px;
-    max-height: 40px; }
+  @media (max-width: 736px) {
+    .landscape #keypad .keybtn {
+      font-size: 20px;
+      max-height: 40px; } }
   #keypad .keybtn {
     flex: 1;
     cursor: pointer;

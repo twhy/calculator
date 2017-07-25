@@ -43,7 +43,8 @@ html, body {
     max-width: 100%;
   }
   @media (min-width: 768px) {
-    max-height: 650px;
+    max-height: 660px;
+    &.landscape  { max-height: 100vh; }
   }
 }
 
@@ -63,9 +64,11 @@ html, body {
 #keypad {
   display: flex;
   flex-wrap: wrap;
-  .landscape & .keybtn {
-    font-size: 20px;
-    max-height: 40px;
+  @media (max-width: 736px) {
+    .landscape & .keybtn {
+      font-size: 20px;
+      max-height: 40px;
+    }
   }
   .keybtn {
     flex: 1;
