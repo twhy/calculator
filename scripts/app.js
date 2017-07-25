@@ -54,8 +54,6 @@
         this.$el.classList.remove('landscape');
     },
 
-
-
     _isExprValid() {
       return !this._isExprEndsWithNegetive() && !this._isExprEndsWithOperator();
     },
