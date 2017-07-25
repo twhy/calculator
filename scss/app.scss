@@ -37,6 +37,7 @@ html, body {
   overflow: hidden;
   max-width: $max-width;
   flex-direction: column;
+  -webkit-tap-highlight-color: rbga(0, 0, 0, 0);
   .landscape & {
     width: 100%;
     max-width: 100%;

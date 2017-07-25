@@ -18,7 +18,8 @@ html, body {
   height: 100%;
   overflow: hidden;
   max-width: 420px;
-  flex-direction: column; }
+  flex-direction: column;
+  -webkit-tap-highlight-color: rbga(0, 0, 0, 0); }
   .landscape #calculator {
     width: 100%;
     max-width: 100%; }
