@@ -32,8 +32,8 @@
     _scale() {
       let maxWidth = this.$result.clientWidth * this.RESULT_CONTENT_MAX_WIDTH_PERCENTAGE;
       if (this.$expr.scrollWidth > maxWidth) {
-        this.$expr.style.transform = `scale(${1  / (this.$expr.scrollWidth / maxWidth)})`;
-        this.$expr.style.transformOrigin = 'right center';
+        this.$expr.style.transform = `scale(${maxWidth / this.$expr.scrollWidth})`;
+        this.$expr.style.transformOrigin = 'right';
       } else {
         this.$expr.style.transform = `scale(1)`;
       }
