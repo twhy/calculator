@@ -22,7 +22,7 @@
 
     set(value) {
       // 处理浮点数不精确的情况如 0.1 + 0.2 = 0.30000000000000004
-      if (typeof value === 'number') value = parseFloat(value.toFixed(10));
+      if (typeof value === 'number') value = parseFloat(value.toFixed(5));
       
       this.expr = String(value);
       this.$expr.innerText = this.expr;
